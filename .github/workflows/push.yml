@@ -1,0 +1,75 @@
+name: push
+
+on:
+  workflow_run:
+    workflows: [check]
+    branches: [master]
+    types:
+      - completed
+  
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    env:
+      SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+      USER_NAME: ${{ secrets.USER_NAME }}
+      DEST_REPO: ${{ secrets.DEST_REPO }}
+      USER_EMAIL: ${{ secrets.USER_EMAIL }}    
+    steps:
+      - name: Wait for tests to succeed
+        if: ${{ github.event.workflow_run.conclusion != 'success' }}
+        run: exit 1
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: push
+        run: |
+          mkdir --parents "$HOME/.ssh"
+          DEPLOY_KEY_FILE="$HOME/.ssh/deploy_key"
+          echo "${SSH_DEPLOY_KEY}" > "$DEPLOY_KEY_FILE"
+          chmod 600 "$DEPLOY_KEY_FILE"
+          
+          SSH_KNOWN_HOSTS_FILE="$HOME/.ssh/known_hosts"
+          GITHUB_SERVER="github.com"
+          
+          ssh-keyscan -H "$GITHUB_SERVER" > "$SSH_KNOWN_HOSTS_FILE"
+          
+          export GIT_SSH_COMMAND="ssh -i "$DEPLOY_KEY_FILE" -o UserKnownHostsFile=$SSH_KNOWN_HOSTS_FILE"
+          GIT_CMD_REPOSITORY="git@$GITHUB_SERVER:${USER_NAME}/${DEST_REPO}.git"
+          
+          CLONE_DIR=$(mktemp -d)
+          
+          git --version
+          git lfs install
+          git config --global user.email "${USER_EMAIL}"
+          git config --global user.name "${USER_NAME}"
+          git config --global http.version HTTP/1.1
+          
+          git clone --single-branch --depth 1 "$GIT_CMD_REPOSITORY" "$CLONE_DIR"
+          ls -la "$CLONE_DIR"
+          
+          TEMP_DIR=$(mktemp -d)
+          mv "$CLONE_DIR/.git" "$TEMP_DIR/.git"
+          
+          TARGET_DIRECTORY=
+          ABSOLUTE_TARGET_DIRECTORY="$CLONE_DIR/$TARGET_DIRECTORY/"
+          
+          rm -rf "$ABSOLUTE_TARGET_DIRECTORY"
+          mkdir -p "$ABSOLUTE_TARGET_DIRECTORY"
+          ls -al
+          ls -al /
+          mv "$TEMP_DIR/.git" "$CLONE_DIR/.git"
+          SOURCE_DIRECTORY="v3/" 
+          ls "$SOURCE_DIRECTORY"
+          cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"
+          cd "$CLONE_DIR"
+          ls -la
+          
+          TARGET_BRANCH="master"
+          git config --global --add safe.directory "$CLONE_DIR"
+          git add .
+          git status
+          git diff-index --quiet HEAD || git commit --message "$(date "+%Y%m%d-%H%M")"
+          git push "$GIT_CMD_REPOSITORY" --set-upstream "$TARGET_BRANCH"
