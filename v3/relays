@@ -28,6 +28,7 @@ pass: anon-cs-la
 pass: anon-cs-london
 pass: anon-cs-madrid
 pass: anon-cs-manchester
+pass: anon-cs-md
 pass: anon-cs-mexico
 pass: anon-cs-milan
 pass: anon-cs-montreal
@@ -125,7 +126,7 @@ pass: dnscry.pt-anon-portland-ipv4
 pass: dnscry.pt-anon-riga-ipv4
 pass: dnscry.pt-anon-saltlakecity-ipv4
 pass: dnscry.pt-anon-sandefjord-ipv4
-pass: dnscry.pt-anon-santaclara-ipv4
+pass: dnscry.pt-anon-santaclara-ipv4 (3 retries)
 pass: dnscry.pt-anon-seattle-ipv4
 pass: dnscry.pt-anon-singapore-ipv4
 pass: dnscry.pt-anon-singapore02-ipv4
