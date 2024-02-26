@@ -59,7 +59,7 @@ pass: anon-cs-vancouver
 pass: anon-dnscrypt.uk-ipv4
 pass: anon-dnswarden-swiss
 pass: anon-gombadi-chennai
-pass: anon-gombadi-saopaulo
+pass: anon-gombadi-saopaulo (1 retry)
 pass: anon-gombadi-singapore
 pass: anon-gombadi-sydney
 pass: anon-gombadi-tokyo
@@ -143,3 +143,4 @@ pass: dnscry.pt-anon-tokyo02-ipv4
 pass: dnscry.pt-anon-toronto-ipv4
 pass: dnscry.pt-anon-valdivia-ipv4
 pass: dnscry.pt-anon-vienna-ipv4
+pass: dnscry.pt-anon-warsaw02-ipv4
