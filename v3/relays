@@ -109,6 +109,7 @@ pass: dnscry.pt-anon-kansascity-ipv4
 pass: dnscry.pt-anon-kharkiv-ipv4
 pass: dnscry.pt-anon-kyiv-ipv4
 pass: dnscry.pt-anon-lagos-ipv4
+pass: dnscry.pt-anon-lasvegas-ipv4
 pass: dnscry.pt-anon-libertylake-ipv4
 pass: dnscry.pt-anon-lima-ipv4
 pass: dnscry.pt-anon-london-ipv4
@@ -145,7 +146,7 @@ pass: dnscry.pt-anon-tallinn-ipv4
 pass: dnscry.pt-anon-tampa-ipv4
 pass: dnscry.pt-anon-taos-ipv4
 pass: dnscry.pt-anon-tokyo-ipv4
-pass: dnscry.pt-anon-tokyo02-ipv4 (3 retries)
+pass: dnscry.pt-anon-tokyo02-ipv4
 pass: dnscry.pt-anon-toronto-ipv4
 pass: dnscry.pt-anon-valdivia-ipv4
 pass: dnscry.pt-anon-vienna-ipv4
