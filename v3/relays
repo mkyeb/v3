@@ -64,7 +64,7 @@ pass: anon-kama
 pass: anon-openinternet
 pass: anon-saldns01-conoha-ipv4
 pass: anon-saldns02-conoha-ipv4
-pass: anon-saldns03-conoha-ipv4
+pass: anon-saldns03-conoha-ipv4 (1 retry)
 pass: anon-saldns99-conoha-ipv4
 pass: anon-scaleway
 pass: anon-scaleway-ams
