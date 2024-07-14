@@ -64,7 +64,7 @@ pass: anon-kama
 pass: anon-openinternet
 pass: anon-saldns01-conoha-ipv4
 pass: anon-saldns02-conoha-ipv4
-pass: anon-saldns03-conoha-ipv4 (1 retry)
+pass: anon-saldns03-conoha-ipv4
 pass: anon-saldns99-conoha-ipv4
 pass: anon-scaleway
 pass: anon-scaleway-ams
@@ -91,7 +91,7 @@ pass: dnscry.pt-anon-dusseldorf-ipv4
 pass: dnscry.pt-anon-eygelshoven-ipv4
 pass: dnscry.pt-anon-flint-ipv4
 pass: dnscry.pt-anon-frankfurt-ipv4
-pass: dnscry.pt-anon-fremont-ipv4
+pass: dnscry.pt-anon-fremont-ipv4 (1 retry)
 pass: dnscry.pt-anon-fujairah-ipv4
 pass: dnscry.pt-anon-geneva-ipv4
 pass: dnscry.pt-anon-helsinki-ipv4
